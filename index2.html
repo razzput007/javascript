@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+   .parentDIV{
+        width: 500px;
+        height: 500px;
+        background-color: lightblue;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left:35%;
+        cursor: pointer;
+    }
+    #childID{
+        width:250px;
+        height: 250px;
+        background-color: blue;
+        margin:auto;
+        cursor: pointer;
+    }
+</style>
+<body>
+    <div class="parentDIV" id="parentID">
+        <div class="childDIV" id="childID">
+           
+        </div>
+
+    </div>
+    <script>
+        const parentDIV=document.getElementById("parentID");
+        const childID=document.getElementById("childID");
+      const callChild=()=>{
+        alert("hello child");
+        event.stopPropagation();
+      }
+      const callParent =()=>{
+       alert("hello parent");
+      }
+
+        parentDIV.addEventListener("click",callParent,true);
+        childID.addEventListener("click",callChild,true);
+    </script>
+</body>
+</html>
